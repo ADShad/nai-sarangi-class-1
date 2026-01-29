@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Drag and Drop</title>
+
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/dragndrop.css" rel="stylesheet" />
+
+    <script
+      type="text/javascript"
+      src="lib/jquery/jquery-1.11.3.min.js"
+    ></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="lib/jquery.ui.touch-punch.min.js"></script>
+    <script src="js/dragndrop.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="wrapper">
+            <section class="content">
+              <div class="d-flex">
+                <p class="question mr-2">5.</p>
+                <p class="question">
+                  write 'Good' for good smell and 'Bad' for bad smell in each
+                  the following pictures.
+                </p>
+              </div>
+              <div class="dragndrop-ques">
+                <ol type="b" id="questions-list">
+                  <li>
+                    <h3>
+                      <div class="dropHere">
+                        ...................................
+                      </div>
+                    </h3>
+                  </li>
+                  <li>
+                    <h3>
+                      <div class="dropHere">
+                        ...................................
+                      </div>
+                    </h3>
+                  </li>
+                  <li>
+                    <h3>
+                      <div class="dropHere">
+                        ...................................
+                      </div>
+                    </h3>
+                  </li>
+                  <li>
+                    <h3>
+                      <div class="dropHere">
+                        ...................................
+                      </div>
+                    </h3>
+                  </li>
+                </ol>
+              </div>
+
+              <div class="dragndrop-options">
+                <ul></ul>
+              </div>
+            </section>
+            <div class="feedback" id="feedback"></div>
+            <div class="score-display" id="score-display"></div>
+            <div class="score">
+              <span id="app-user-score">3</span> /
+              <span id="app-total-score">5</span>
+            </div>
+            <footer>
+              <div class="buttons">
+                <button type="submit" id="btn-submit" class="btn btn-submit">
+                  Submit
+                </button>
+                <button type="submit" id="btn-reset" class="btn btn-reset">
+                  Reset
+                </button>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal -->
+    <div
+      id="feedbackModal"
+      class="modal fade"
+      tabindex="-1"
+      data-backdrop="static"
+      data-keyboard="false"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!--<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close"></i></span></button>
+					<h4 class="modal-title" id="myModalLabel"> </h4> 
+				</div>-->
+
+          <div class="modal-body">
+            <div class="gamewin-msg">
+              <!-- <h1>Excellent</h1>  -->
+            </div>
+          </div>
+        </div>
+
+        <div id="balloon-wrap">
+          <div class="balloon x1"><img src="img/balloon1.png" /></div>
+          <div class="balloon x2"><img src="img/balloon2.png" /></div>
+          <div class="balloon x3"><img src="img/balloon3.png" /></div>
+          <div class="balloon x4"><img src="img/balloon4.png" /></div>
+          <div class="balloon x5"><img src="img/balloon5.png" /></div>
+          <div class="balloon x6"><img src="img/balloon6.png" /></div>
+        </div>
+      </div>
+    </div>
+    <!-- \\modal -->
+
+    <!-- <div class="hide">
+      <audio controls id="audio-intro">
+        <source src="audio/ch_1_2.mp3" type="audio/mp3" />
+      </audio>
+
+      <audio id="audio-clap">
+        <source src="../../audio/welldone.wav" type="audio/wav" />
+      </audio>
+    </div> -->
+    <audio controls id="audio-intro" class="hide">
+      <!-- <source src="./audio/ch_1_5.mp3" type="audio/mp3" /> -->
+    </audio>
+    <audio id="audio-try-again">
+      <source src="../../audio/try-again.mp3" type="audio/mp3" />
+    </audio>
+    <audio id="audio-clap">
+      <source src="../../audio/welldone.mp3" type="audio/mp3" />
+    </audio>
+
+    <script type="text/javascript">
+      const questions = [
+        {
+          title:
+            "Long ago, people communicated using ______________ and ______________ on rocks.",
+          answers: ["carvings", "drumbeats"],
+        },
+        {
+          title:
+            "Later, people started sending letters carried by ______________ and ______________.",
+          answers: ["messengers", "pigeons"],
+        },
+        {
+          title:
+            "Much later, the ______________ service came into being. It was used to send ______________ and important documents to others.",
+          answers: ["postal", "letters"],
+        },
+        {
+          title:
+            "With time new ______________ like the telephone, radio and ______________ made it easier to communicate and share information.",
+          answers: ["inventions", "computers"],
+        },
+        {
+          title:
+            "Today, we have mobile phones and ______________ that use ______________. The internet helps us connect with anyone and anywhere in seconds.",
+          answers: ["computers", "internet"],
+        },
+      ];
+    </script>
+    <script type="text/javascript">
+      jQuery(document).ready(function () {
+        DND.loadQuestions();
+
+        $("#btn-submit").click(DND.submitAnswer);
+        $("#btn-reset").click(DND.reset);
+        // var bh = $('body').height();
+        //$('.container').height(bh + 'px').css('overflow', 'auto');
+      });
+    </script>
+  </body>
+</html>

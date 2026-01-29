@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multiple Choice Questions</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="mcq-section">
+        <ol>
+          <li>
+            <h3>Choose the correct option.</h3>
+            <div class="quiz_ques">
+              <ol>
+                <!-- Questions will be dynamically inserted here -->
+              </ol>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="feedback" id="feedback"></div>
+      <div class="score" style="display: none">
+        Score: <span id="total-score">0</span>/<span id="total-marks">0</span>
+      </div>
+      <div class="buttons">
+        <button type="button" id="btn-submit" class="btn btn-submit">
+          Submit
+        </button>
+        <button type="button" id="btn-reset" class="btn btn-reset">
+          Reset
+        </button>
+      </div>
+      <audio controls id="audio-intro" class="hide">
+        <source src="./audio/main.mp3" type="audio/mp3" />
+      </audio>
+      <audio id="audio-try-again">
+        <source src="../../audio/try-again.mp3" type="audio/mp3" />
+      </audio>
+      <audio id="audio-clap">
+        <source src="../../audio/welldone.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+
+    <script type="text/javascript">
+      const questions = [
+        {
+          title: "Van Mahotsav is celebrated every year from",
+          options: [
+            "1 to 7 July",
+            "1 to 7 June",
+            "1 to 7 May",
+            "1 to 7 August",
+          ],
+          correct: 0,
+        },
+        {
+          title: "What did Mallika use for announcements?",
+          options: ["Microphone", "Drum", "Handbell", "Banner"],
+          correct: 0,
+        },
+        {
+          title: "What did Sameer bring to fix the benches?",
+          options: [
+            "Wood and nails",
+            "Paint and brushes",
+            "Stones and cement",
+            "Clay and bricks",
+          ],
+          correct: 0,
+        },
+        {
+          title: "What did Babita volunteer to repair?",
+          options: [
+            "Benches",
+            "Street light",
+            "Bridge",
+            "Playground equipment",
+          ],
+          correct: 1,
+        },
+      ];
+    </script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

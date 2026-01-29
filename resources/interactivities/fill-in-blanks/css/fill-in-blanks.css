@@ -1,0 +1,139 @@
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  overflow: -moz-hidden-unscrollable;
+  font-family: "Open Sans", sans-serif;
+}
+
+.question {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.question-text {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.blank {
+  display: inline-block;
+  width: 170px;
+  height: 30px;
+  border: 2px dashed #666;
+  background-color: #f0f0f0;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+.blank.hover {
+  background-color: #e0e0e0;
+  border-style: solid;
+}
+
+.blank.filled {
+  border-style: solid;
+  background-color: #e8f5e9;
+  text-align: center;
+}
+
+.question-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.option {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: move;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.option.dragging {
+  opacity: 0.5;
+}
+
+.buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-submit {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-reset {
+  background-color: #f44336;
+  color: white;
+}
+
+.feedback {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+.feedback.correct {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.feedback.incorrect {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.score-display {
+  font-size: 18px;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.score-correct {
+  color: #2e7d32;
+}
+
+.score-total {
+  color: #1976d2;
+}
+audio {
+  display: none;
+}
+
+.hide{
+  display: none;
+}
