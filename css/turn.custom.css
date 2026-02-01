@@ -89,4 +89,6 @@
   cursor: pointer;
   /* width: 35px; */
   width: 5%;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }

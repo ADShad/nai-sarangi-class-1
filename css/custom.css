@@ -32,7 +32,7 @@
   background: transparent;
 }
 
-.footer_icons button img{
+.footer_icons button img {
   width: 20px;
   height: 20px;
 }
@@ -419,6 +419,8 @@ a:hover > [class*=" icon-"] {
   top: 0px;
   left: 0px;
   background: rgba(255, 255, 255, 0);
+  z-index: 0;
+  pointer-events: none;
 }
 
 /**** start toolbox ******/
@@ -441,9 +443,18 @@ a:hover > [class*=" icon-"] {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   filter: progid:DXImageTransform.Microsoft.Shadow(color='#000000', Direction=0, Strength=16);
-  -moz-box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
-  -webkit-box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
-  box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
+  -moz-box-shadow:
+    0 2px 16px #000,
+    0 0 1px #000,
+    0 0 1px #000;
+  -webkit-box-shadow:
+    0 2px 16px #000,
+    0 0 1px #000,
+    0 0 1px #000;
+  box-shadow:
+    0 2px 16px #000,
+    0 0 1px #000,
+    0 0 1px #000;
   border: 1px solid rgba(255, 255, 255, 0.5);
   margin-left: 7px;
   border-radius: 5px;
@@ -466,7 +477,9 @@ a:hover > [class*=" icon-"] {
   border: 1px solid rgba(50, 50, 50, 0.7);
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0);
-  box-shadow: inset 0 0 1px #fff, inset 4px 4px 20px rgba(255, 255, 255, 0.33),
+  box-shadow:
+    inset 0 0 1px #fff,
+    inset 4px 4px 20px rgba(255, 255, 255, 0.33),
     inset -2px -2px 10px rgba(255, 255, 255, 0.25);
 }
 
@@ -531,7 +544,12 @@ a:hover > [class*=" icon-"] {
   -ms-transform-origin: top left;
   transform-origin: top left;
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.linking-container > div {
+  pointer-events: auto;
 }
 
 .action-highlight .canvas-paint {
@@ -662,9 +680,18 @@ button {
   color: #ffffff;
   font-size: 12px;
   filter: progid:DXImageTransform.Microsoft.Shadow(color='#000000', Direction=0, Strength=16);
-  -moz-box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
-  -webkit-box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
-  box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
+  -moz-box-shadow:
+    0 2px 16px #000,
+    0 0 1px #000,
+    0 0 1px #000;
+  -webkit-box-shadow:
+    0 2px 16px #000,
+    0 0 1px #000,
+    0 0 1px #000;
+  box-shadow:
+    0 2px 16px #000,
+    0 0 1px #000,
+    0 0 1px #000;
   display: none;
 }
 
@@ -691,9 +718,18 @@ button {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   filter: progid:DXImageTransform.Microsoft.Shadow(color='#000000', Direction=0, Strength=16);
-  -moz-box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
-  -webkit-box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
-  box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
+  -moz-box-shadow:
+    0 2px 16px #000,
+    0 0 1px #000,
+    0 0 1px #000;
+  -webkit-box-shadow:
+    0 2px 16px #000,
+    0 0 1px #000,
+    0 0 1px #000;
+  box-shadow:
+    0 2px 16px #000,
+    0 0 1px #000,
+    0 0 1px #000;
   border: 1px solid rgba(255, 255, 255, 0.5);
   margin-left: -175px;
   display: none;
@@ -872,10 +908,22 @@ button#dev-section-close {
   border-radius: 0 0 1rem 0;
   /* background-color: white; */
   /* clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%); */
+  z-index: 100;
+}
+
+/* Mobile responsive logo */
+@media screen and (max-width: 768px) {
+  .app-logo {
+    position: fixed;
+    z-index: 1000;
+  }
+  .app-logo img {
+    height: 50px;
+    padding: 0.3rem;
+  }
 }
 .btn-img {
   width: 38px;
-
 }
 .top-controls-wrapper {
   display: flex;
@@ -905,7 +953,6 @@ button#dev-section-close {
   align-items: center;
   border-radius: 0.6rem;
   padding: 5px 6px;
-
 }
 .book-wrapper {
   position: relative;

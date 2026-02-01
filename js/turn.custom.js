@@ -91,10 +91,26 @@ function addPage(page, book) {
           page +
           '" ></iframe>' +
           '<div class="iframe-blocker"></div>' +
-          "</div>"
+          "</div>",
       );
+
+      // Bind touch events for mobile Chrome compatibility
+      element.find(".linking-container .regionPos").each(function () {
+        var $el = $(this);
+        var onclickAttr = $el.attr("onclick");
+        if (onclickAttr) {
+          $el.on("touchend", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            // Execute the onclick function
+            eval(onclickAttr);
+          });
+        }
+      });
+
       if (PRODUCTION_MODE == false) {
         $(".linking-container > div").removeAttr("onclick");
+        $(".linking-container > div").off("touchend");
         var th = 0,
           tw = 0;
         $(".linking-container > div").draggable({
@@ -230,7 +246,7 @@ function resizeBook() {
     width,
     height,
     parentWidth,
-    parentHeight
+    parentHeight,
   );
   $("#book").turn("size", finalDimension.width, finalDimension.height);
   eBookConfig.zoom = 1;
@@ -245,7 +261,7 @@ function resizeBook() {
       "px; width: " +
       innerW +
       "px; }" +
-      "</style>"
+      "</style>",
   );
   var pgheight = $("#book .page").height();
   $("#book .data").height(pgheight + "px");
@@ -296,12 +312,12 @@ function zoomBook(zoomlevel) {
     width,
     height,
     parentWidth,
-    parentHeight
+    parentHeight,
   );
   $("#book").turn(
     "size",
     finalDimension.width * zoomlevel,
-    finalDimension.height * zoomlevel
+    finalDimension.height * zoomlevel,
   );
   $("#book-viewport").css("overflow", "auto");
   var pgheight = $("#book .page").height();
